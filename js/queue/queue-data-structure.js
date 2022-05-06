@@ -5,23 +5,41 @@ class Queue {
   }
 
   canEnqueue() {
-    // ... your code goes here
+    if (this.queueControl.length === this.MAX_SIZE){
+      return false;
+    } else if (this.queueControl.length < 10){
+      return true;
+    }
   }
 
   isEmpty() {
-    // ... your code goes here
+    if (this.queueControl.length === 0){
+      return true;
+    } else {
+      return false;
+    }
   }
 
   enqueue(item) {
-    // ... your code goes here
+    if (this.queueControl.length === this.MAX_SIZE){
+      throw Error ("QUEUE_OVERFLOW");
+    } else {
+      this.queueControl.push(item);
+      return this.queueControl;
+    }
   }
 
   dequeue() {
-    // ... your code goes here
+    if (this.queueControl.length === 0){
+      throw Error ("QUEUE_UNDERFLOW");
+    } else {
+      let x = this.queueControl.shift();
+      return x;
+    }
   }
 
   display() {
-    // ... your code goes here
+    return this.queueControl;
   }  
 }
 
